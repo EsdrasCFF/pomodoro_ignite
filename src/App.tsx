@@ -1,6 +1,15 @@
+import { Button } from "./components/Button";
+
 export function App() {
 
   return (
-    <h1> IGNITE TIMER </h1>
-  )
+
+    <>
+      <Button variant="secundary" />
+      <Button variant="primary" />
+      <Button variant="danger" />
+      <Button variant="success"/>
+    </>
+
+    )
 }
