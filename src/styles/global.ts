@@ -7,10 +7,14 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  :focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px ${({theme}) => theme.COLORS.GREEN_500}
+  }
 
   body {
-    background-color: #333;
-    color: #fff
+    background-color: ${({theme}) => theme.COLORS.GRAY_900};
+    color: ${({theme}) => theme.COLORS.GRAY_300}
   }
 
   body, input, textarea, button {

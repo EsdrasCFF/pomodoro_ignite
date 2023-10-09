@@ -1,5 +1,7 @@
-export default {
-  COLORS: {
+export const defaultTheme = {
+  COLORS : {
+    WHITE: '#fff',
+
     GRAY_100: "#E1E1E6",
     GRAY_300: "#C4C4CC",
     GRAY_400: "#8D8D99",
@@ -16,6 +18,6 @@ export default {
     RED_500: "#AB222E",
     RED_700: "#7A1921",
 
-    YELLOW_500: "#FBA94C"
+    YELLOW_500: "#FBA94C",
   }
 }
