@@ -23,7 +23,7 @@ export const HeaderContainer = styled.header`
       border-bottom: 3px solid transparent;
 
       &:hover {
-        border-bottom: 3px solid ${({theme}) => theme.COLORS.GRAY_500};
+        border-bottom: 3px solid ${({theme}) => theme.COLORS.GREEN_500};
       }
 
       &.active {
