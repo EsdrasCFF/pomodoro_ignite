@@ -27,7 +27,7 @@ export const HeaderContainer = styled.header`
       }
 
       &.active {
-        color: ${({theme}) => theme.COLORS.GRAY_500};
+        color: ${({theme}) => theme.COLORS.GREEN_500};
       }
     }
   }
