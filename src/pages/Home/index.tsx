@@ -1,6 +1,7 @@
 import { Play } from "phosphor-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useState } from "react";
 import * as zod from "zod"
 
 import { HomeContainer , FormContainer, CountdownContainer, Separator, StartCountdownButton, TaskInput, MinutesAmountInput} from "./styles";
@@ -15,8 +16,17 @@ interface INewCycleFormData {
   minutesAmount: number
 }
 
+interface ICycle {
+  id: string,
+  task: string,
+  minutesAmount: number
+}
+
 export function Home() {
-  const { register, handleSubmit, watch } = useForm<INewCycleFormData>({
+  const [cycles, setCycles] = useState<ICycle[]>([]);
+  const [activeCycleId, setActiveCycleId] = useState<null | string>(null)
+  
+  const { register, handleSubmit, watch, reset } = useForm<INewCycleFormData>({
     resolver: zodResolver(newCycleFormValidationSchema),
     defaultValues: {
       task: '',
@@ -25,8 +35,23 @@ export function Home() {
   });
 
   function handleCreateNewCycle(data: INewCycleFormData) {
-    console.log(data)
+    const id = String(new Date().getTime())
+    
+    const newCycle: ICycle = {
+      id: id,
+      task: data.task,
+      minutesAmount: data.minutesAmount
+    }
+
+    setCycles(prevState => [...prevState, newCycle])
+    setActiveCycleId(id)
+
+    reset()
   }
+
+  const activeCycle = cycles.find((cycle) => cycle.id == activeCycleId)
+
+  console.log(activeCycle)
 
   const task = watch("task");
   const minutesAmount = watch("minutesAmount");
