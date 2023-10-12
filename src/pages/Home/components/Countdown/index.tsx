@@ -18,7 +18,7 @@ export function Countdown() {
 
   useEffect(() => {
 
-    let interval;
+    let interval: number | undefined;
 
     if (activeCycle) {
       interval = setInterval(() => {
