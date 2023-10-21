@@ -15,6 +15,7 @@ export interface ICycle {
   finishedDate?: Date 
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function cyclesReducer(state: ICyclesState, action: any) {
   switch (action.type) {
     case ActionTypes.ADD_NEW_CYCLE: 
