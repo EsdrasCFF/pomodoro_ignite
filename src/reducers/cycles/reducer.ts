@@ -19,7 +19,7 @@ export function cyclesReducer(state: ICyclesState, action: any) {
   switch (action.type) {
     case ActionTypes.ADD_NEW_CYCLE: 
       return produce(state, (draft) => {
-        draft.cycles.push(action.payload.newCycle.id)
+        draft.cycles.push(action.payload.newCycle)
         draft.activeCycleId = action.payload.newCycle.id
       })
 
@@ -28,7 +28,7 @@ export function cyclesReducer(state: ICyclesState, action: any) {
         return cycle.id === state.activeCycleId
       })
 
-      if(currentCycleIndex < 0) {
+      if (currentCycleIndex < 0) {
         return state
       }
 
@@ -43,7 +43,7 @@ export function cyclesReducer(state: ICyclesState, action: any) {
         return cycle.id === state.activeCycleId
       })
 
-      if(currentCycleIndex < 0) {
+      if (currentCycleIndex < 0) {
         return state
       }
 
